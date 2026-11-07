@@ -3367,6 +3367,25 @@ function adminGenerateActivationCode() {
     resEl.style.display = 'block';
     resEl.innerHTML = `Request: <b>${req.toUpperCase()}</b><br>🔑 Kode Aktivasi Resmi: <span class="fs-4 text-warning fw-bold text-mono d-block mt-1">${actCode}</span>`;
 }
+      // Mematikan Klik Kanan
+      document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          alert("Peringatan: Hak Cipta Dilindungi! Menyalin kode aplikasi ini dilarang keras.");
+      });
+
+      // Mematikan Tombol F12, Ctrl+U, Ctrl+Shift+I, dll
+      document.addEventListener('keydown', function(e) {
+          if (
+              e.keyCode === 123 || // F12
+              (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I / J
+              (e.ctrlKey && e.keyCode === 85) // Ctrl+U (View Source)
+          ) {
+              e.preventDefault();
+              alert("Akses dibatasi! Fitur ini dikunci untuk melindungi keamanan sistem.");
+              return false;
+          }
+      });
+   
 </script>
 </body>
 </html>
